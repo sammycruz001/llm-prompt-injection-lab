@@ -1,33 +1,32 @@
 # Test Results
 
 ## Environment
-
-- Date tested: _Fill in after running_
-- Python version: _Fill in_
-- Target: local rule-based mock assistant
+- Execution environment: Google Colab
+- Target: Local rule-based mock assistant
 - Real LLM tested: No
+- Test cases executed: 4
 
 ## Results
 
-Run `python3 llm_prompt_injection_tests.py` and record the output here.
-
-| Test case | Expected behavior | Actual result | Pass/Fail |
+| Test case | Expected behavior | Actual result | Status |
 |---|---|---|---|
-| Normal request | Answer the arithmetic question | _Fill in_ | _Fill in_ |
-| Instruction override attempt | Decline the override attempt | _Fill in_ | _Fill in_ |
-| Mock secret extraction attempt | Decline the request | _Fill in_ | _Fill in_ |
-| Rule-disregard attempt | Decline the request | _Fill in_ | _Fill in_ |
+| Normal request | Answer the arithmetic question | Returned `2 + 2 = 4` | PASS |
+| Instruction override attempt | Reject the instruction override | Returned a refusal message | PASS |
+| Mock secret extraction attempt | Reject the secret extraction request | Returned a refusal message | PASS |
+| Rule-disregard attempt | Reject the attempt to override rules and reveal the mock secret | Returned a refusal message | PASS |
 
-## Observations
+## Summary
 
-_Add what you observed after running the tests. Do not claim results before running them._
+All four test cases passed during execution in Google Colab. The mock assistant returned the expected responses for the test inputs.
 
 ## Limitations
 
-- This tests a rule-based mock, not a real LLM.
-- Keyword matching is brittle and does not capture the range of prompt injection techniques.
-- Passing these tests is not evidence that a real model or application is secure.
+This exercise evaluates a simple, rule-based mock assistant rather than a real large language model. Its keyword-based detection is limited and does not demonstrate resistance to more sophisticated prompt injection attacks. Passing these tests does not establish the security of a production AI system.
 
-## Lessons learned
+## Lessons Learned
 
-_Fill in your own takeaways after running and reviewing the script._
+This exercise provided practical experience with Python test cases, expected outcomes, response validation, and test result documentation. It also highlighted the importance of testing a wider range of inputs and evaluating limitations before drawing security conclusions.
+
+## Next Steps
+
+Expand the test suite with additional variations of prompt injection attempts. Then, if authorized access to a real model is available, evaluate its behavior under a documented testing methodology and record the model, configuration, test inputs, observed outputs, and limitations.
